@@ -1,14 +1,11 @@
 app:
   port: 8091
+  logging: debug
+  eureka: 8761
   database: pys.articulo
   server: 10.147.20.20:3306
   user: root
   password: root
-  livereload:
-    enabled: true
-    port: 35792
-  open-in-view: true
-  logging: debug
 
 server:
   port: ${app.port}
@@ -20,7 +17,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://eureka:@eureka-service:8761/eureka
+      defaultZone: http://eureka:@eureka-service:${app.eureka}/eureka
 
 spring:
   application:
@@ -31,7 +28,6 @@ spring:
     password: ${app.password}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
-    open-in-view: ${app.open-in-view}
     hibernate:
       ddl-auto: none
 
