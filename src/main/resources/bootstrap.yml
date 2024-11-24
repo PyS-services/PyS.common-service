@@ -2,7 +2,7 @@ app:
   port: ${APP_PORT:8091}
   logging: debug
   eureka: 8761
-  database: pys.articulo
+  database: pys.common
   server: 10.147.20.20:3306
   user: root
   password: root
