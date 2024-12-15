@@ -13,8 +13,9 @@ data class Usuario(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val usuarioId: Int? = null,
     val login: String = "",
-    val password: String = "",
+    var password: String = "",
     val nombre: String = "",
+    val restricted: Byte = 0,
 
 ) : Auditable() {
     class Builder {
@@ -22,14 +23,16 @@ data class Usuario(
         private var login: String = ""
         private var password: String = ""
         private var nombre: String = ""
+        private var restricted: Byte = 0
 
         fun usuarioId(usuarioId: Int?) = apply { this.usuarioId = usuarioId }
         fun login(login: String) = apply { this.login = login }
         fun password(password: String) = apply { this.password = password }
         fun nombre(nombre: String) = apply { this.nombre = nombre }
+        fun restricted(restricted: Byte) = apply { this.restricted = restricted }
 
         fun build() = Usuario(
-            usuarioId, login, password, nombre
+            usuarioId, login, password, nombre, restricted
         )
     }
 

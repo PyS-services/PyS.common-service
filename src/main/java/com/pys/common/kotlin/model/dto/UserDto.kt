@@ -1,9 +1,10 @@
 package com.pys.common.kotlin.model.dto
 
-class UserDto (
+data class UserDto (
 
     val login: String = "",
     val password: String = "",
-    val nombre: String = ""
+    val nombre: String = "",
+    var newPassword: String = ""
 
 )
