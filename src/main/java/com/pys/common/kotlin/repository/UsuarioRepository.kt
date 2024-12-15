@@ -6,6 +6,8 @@ import java.util.Optional
 
 interface UsuarioRepository : JpaRepository<Usuario, Long> {
 
+    fun findByLogin(login: String): Optional<Usuario?>?
+
     fun findByLoginAndPassword(login: String, password: String): Optional<Usuario?>?
 
 }

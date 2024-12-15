@@ -31,4 +31,9 @@ public class UserController {
         return ResponseEntity.ok(service.login(user));
     }
 
+    @PostMapping("/change/password")
+    public ResponseEntity<Boolean> changePassword(@RequestBody UserDto user) {
+        return ResponseEntity.ok(service.changePassword(user));
+    }
+
 }

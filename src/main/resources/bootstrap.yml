@@ -6,6 +6,7 @@ app:
   server: 10.147.20.20:3306
   user: root
   password: root
+  name: common-service
 
 server:
   port: ${app.port}
@@ -21,9 +22,9 @@ eureka:
 
 spring:
   application:
-    name: articulo-service
+    name: ${app.name}
   datasource:
-    url: jdbc:mysql://${app.server}/${app.database}?useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://${app.server}/${app.database}?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: ${app.user}
     password: ${app.password}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -37,7 +38,7 @@ spring:
 
 logging:
   level:
-    com.pys.articulo: ${app.logging}
+    com.pys.common: ${app.logging}
     web: ${app.logging}
     org:
       hibernate:
