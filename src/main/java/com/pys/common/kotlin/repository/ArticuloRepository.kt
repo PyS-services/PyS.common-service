@@ -8,7 +8,7 @@ import java.util.Optional
 @Repository
 interface ArticuloRepository : JpaRepository<Articulo, Long> {
 
-    fun findAllByCodigoArticuloIn(codigoArticulos: MutableList<String>): MutableList<Articulo?>?
+    fun findAllByCodigoArticuloIn(codigoArticulos: MutableList<String>): List<Articulo?>?
 
     fun findByCodigoArticulo(codigoArticulo: String): Optional<Articulo?>?
 

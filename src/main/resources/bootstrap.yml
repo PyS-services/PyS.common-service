@@ -44,3 +44,9 @@ logging:
       hibernate:
         SQL: ${app.logging}
       springframework.cloud.config: ${app.logging}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
