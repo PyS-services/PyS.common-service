@@ -19,4 +19,8 @@ public class ArticuloImportadoService {
         return repository.saveAll(articulosImported);
     }
 
+    public ArticuloImportado add(ArticuloImportado articuloImported) {
+        return repository.save(articuloImported);
+    }
+
 }

@@ -7,14 +7,16 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
 import jakarta.persistence.UniqueConstraint
+import java.util.UUID
 
 @Entity
 @Table(uniqueConstraints = [UniqueConstraint(columnNames = ["cuit"])])
 data class Proveedor(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val proveedorId: Long? = null,
+    @GeneratedValue(strategy = GenerationType.UUID)
+    val proveedorId: UUID? = null,
+    var proveedorIdNegocio: Long? = null,
     val razonSocial: String = "",
     val nombreFantasia: String = "",
     val cuit: String = "",
@@ -24,7 +26,7 @@ data class Proveedor(
     val telefono: String = "",
     val fax: String = "",
     val email: String = "",
-    val posicionIva: Short = 0,
+    val posicionIva: Int = 0,
     val celular: String = "",
     val ingresosBrutos: String = "",
     val contacto: String = "",
@@ -33,7 +35,8 @@ data class Proveedor(
 ) : Auditable() {
 
     class Builder {
-        private var proveedorId: Long? = null
+        private var proveedorId: UUID? = null
+        private var proveedorIdNegocio: Long? = null
         private var razonSocial: String = ""
         private var nombreFantasia: String = ""
         private var cuit: String = ""
@@ -43,13 +46,14 @@ data class Proveedor(
         private var telefono: String = ""
         private var fax: String = ""
         private var email: String = ""
-        private var posicionIva: Short = 0
+        private var posicionIva: Int = 0
         private var celular: String = ""
         private var ingresosBrutos: String = ""
         private var contacto: String = ""
         private var observaciones: String = ""
 
-        fun proveedorId(proveedorId: Long?) = apply { this.proveedorId = proveedorId }
+        fun proveedorId(proveedorId: UUID?) = apply { this.proveedorId = proveedorId }
+        fun proveedorIdNegocio(proveedorIdNegocio: Long?) = apply { this.proveedorIdNegocio = proveedorIdNegocio }
         fun razonSocial(razonSocial: String) = apply { this.razonSocial = razonSocial }
         fun nombreFantasia(nombreFantasia: String) = apply { this.nombreFantasia = nombreFantasia }
         fun cuit(cuit: String) = apply { this.cuit = cuit }
@@ -59,14 +63,14 @@ data class Proveedor(
         fun telefono(telefono: String) = apply { this.telefono = telefono }
         fun fax(fax: String) = apply { this.fax = fax }
         fun email(email: String) = apply { this.email = email }
-        fun posicionIva(posicionIva: Short) = apply { this.posicionIva = posicionIva }
+        fun posicionIva(posicionIva: Int) = apply { this.posicionIva = posicionIva }
         fun celular(celular: String) = apply { this.celular = celular }
         fun ingresosBrutos(ingresosBrutos: String) = apply { this.ingresosBrutos = ingresosBrutos }
         fun contacto(contacto: String) = apply { this.contacto = contacto }
         fun observaciones(observaciones: String) = apply { this.observaciones = observaciones }
 
         fun build() = Proveedor(
-            proveedorId, razonSocial, nombreFantasia, cuit, domicilio, localidad, provincia, telefono, fax, email,
+            proveedorId, proveedorIdNegocio, razonSocial, nombreFantasia, cuit, domicilio, localidad, provincia, telefono, fax, email,
             posicionIva, celular, ingresosBrutos, contacto, observaciones
         )
     }

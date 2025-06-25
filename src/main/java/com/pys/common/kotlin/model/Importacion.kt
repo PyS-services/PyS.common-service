@@ -7,13 +7,14 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import java.time.OffsetDateTime
+import java.util.UUID
 
 @Entity
 data class Importacion(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val importacionId: Long? = null,
+    @GeneratedValue(strategy = GenerationType.UUID)
+    val importacionId: UUID? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ", timezone = "UTC")
     val fechaImportacion: OffsetDateTime? = null
@@ -21,10 +22,10 @@ data class Importacion(
 ) : Auditable() {
 
     class Builder {
-        private var importacionId: Long? = null
+        private var importacionId: UUID? = null
         private var fechaImportacion: OffsetDateTime? = null
 
-        fun importacionId(importacionId: Long?) = apply { this.importacionId = importacionId }
+        fun importacionId(importacionId: UUID?) = apply { this.importacionId = importacionId }
         fun fechaImportacion(fechaImportacion: OffsetDateTime?) = apply { this.fechaImportacion = fechaImportacion }
 
         fun build() = Importacion(

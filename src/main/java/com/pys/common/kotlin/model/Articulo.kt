@@ -13,14 +13,15 @@ import jakarta.persistence.Table
 import jakarta.persistence.UniqueConstraint
 import java.math.BigDecimal
 import java.time.OffsetDateTime
+import java.util.UUID
 
 @Entity
 @Table(uniqueConstraints = [UniqueConstraint(columnNames = ["codigoArticulo"])])
 data class Articulo(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var articuloId: Long? = null,
+    @GeneratedValue(strategy = GenerationType.UUID)
+    var articuloId: UUID? = null,
 
     var codigoArticulo: String = "",
     var descripcion: String = "",
@@ -40,14 +41,14 @@ data class Articulo(
     var fechaActualizacion: OffsetDateTime? = null,
     var origen: String = "",
     var descuento: String = "",
-    var proveedorId: Long? = null,
+    var proveedorId: UUID? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ", timezone = "UTC")
     var ultimaCompra: OffsetDateTime? = null,
     var marca: String = "",
     var catalogo: String = "",
     var precioListaSinIvaUsd: BigDecimal = BigDecimal("0.00"),
-    var cotizacionId: Long? = null,
+    var cotizacionId: UUID? = null,
 
     @OneToOne(optional = true)
     @JoinColumn(name = "proveedorId", insertable = false, updatable = false)
@@ -60,7 +61,7 @@ data class Articulo(
 ) : Auditable() {
 
     class Builder {
-        private var articuloId: Long? = null
+        private var articuloId: UUID? = null
         private var codigoArticulo: String = ""
         private var descripcion: String = ""
         private var precioVentaConIva: BigDecimal = BigDecimal("0.00")
@@ -75,15 +76,15 @@ data class Articulo(
         private var fechaActualizacion: OffsetDateTime? = null
         private var origen: String = ""
         private var descuento: String = ""
-        private var proveedorId: Long? = null
+        private var proveedorId: UUID? = null
         private var ultimaCompra: OffsetDateTime? = null
         private var marca: String = ""
         private var catalogo: String = ""
         private var precioListaSinIvaUsd: BigDecimal = BigDecimal("0.00")
-        private var cotizacionId: Long? = null
+        private var cotizacionId: UUID? = null
         private var proveedor: Proveedor? = null
 
-        fun articuloId(articuloId: Long?) = apply { this.articuloId = articuloId }
+        fun articuloId(articuloId: UUID?) = apply { this.articuloId = articuloId }
         fun codigoArticulo(codigoArticulo: String) = apply { this.codigoArticulo = codigoArticulo }
         fun descripcion(descripcion: String) = apply { this.descripcion = descripcion }
         fun precioVentaConIva(precioVentaConIva: BigDecimal) = apply { this.precioVentaConIva = precioVentaConIva }
@@ -98,12 +99,12 @@ data class Articulo(
         fun fechaActualizacion(fechaActualizacion: OffsetDateTime?) = apply { this.fechaActualizacion = fechaActualizacion }
         fun origen(origen: String) = apply { this.origen = origen }
         fun descuento(descuento: String) = apply { this.descuento = descuento }
-        fun proveedorId(proveedorId: Long?) = apply { this.proveedorId = proveedorId }
+        fun proveedorId(proveedorId: UUID?) = apply { this.proveedorId = proveedorId }
         fun ultimaCompra(ultimaCompra: OffsetDateTime?) = apply { this.ultimaCompra = ultimaCompra }
         fun marca(marca: String) = apply { this.marca = marca }
         fun catalogo(catalogo: String) = apply { this.catalogo = catalogo }
         fun precioListaSinIvaUsd(precioListaSinIvaUsd: BigDecimal) = apply { this.precioListaSinIvaUsd = precioListaSinIvaUsd }
-        fun cotizacionId(cotizacionId: Long?) = apply { this.cotizacionId = cotizacionId }
+        fun cotizacionId(cotizacionId: UUID?) = apply { this.cotizacionId = cotizacionId }
         fun proveedor(proveedor: Proveedor?) = apply { this.proveedor = proveedor }
 
         fun build() = Articulo(

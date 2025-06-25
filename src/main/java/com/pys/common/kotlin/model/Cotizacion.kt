@@ -10,6 +10,7 @@ import jakarta.persistence.Table
 import jakarta.persistence.UniqueConstraint
 import java.math.BigDecimal
 import java.time.OffsetDateTime
+import java.util.UUID
 
 @Entity
 @Table(uniqueConstraints = [
@@ -18,8 +19,8 @@ import java.time.OffsetDateTime
 data class Cotizacion(
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var cotizacionId: Long? = null,
+    @GeneratedValue(strategy = GenerationType.UUID)
+    var cotizacionId: UUID? = null,
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ssZ", timezone = "UTC")
     var fecha: OffsetDateTime? = null,
@@ -29,12 +30,12 @@ data class Cotizacion(
 ) : Auditable() {
 
     class Builder {
-        private var cotizacionId: Long? = null
+        private var cotizacionId: UUID? = null
         private var fecha: OffsetDateTime? = null
         private var usdCompra: BigDecimal = BigDecimal("0.00")
         private var usdVenta: BigDecimal = BigDecimal("0.00")
 
-        fun cotizacionId(cotizacionId: Long?) = apply { this.cotizacionId = cotizacionId }
+        fun cotizacionId(cotizacionId: UUID?) = apply { this.cotizacionId = cotizacionId }
         fun fecha(fecha: OffsetDateTime?) = apply { this.fecha = fecha }
         fun usdCompra(usdCompra: BigDecimal) = apply { this.usdCompra = usdCompra }
         fun usdVenta(usdVenta: BigDecimal) = apply { this.usdVenta = usdVenta }

@@ -14,6 +14,7 @@ data class Negocio(
     var sucursalId: Int? = null,
     var databaseName: String? = null,
     var databaseIp: String? = null,
+    var databasePort: Int = 0,
     var databaseDsn: String? = null,
     var databaseUid: String? = null,
     var databasePwd: String? = null,

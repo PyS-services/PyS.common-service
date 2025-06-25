@@ -19,4 +19,5 @@ open class Auditable {
     @field:LastModifiedDate
     @Column(name = "updated")
     open var updated: LocalDateTime? = null
+
 }
