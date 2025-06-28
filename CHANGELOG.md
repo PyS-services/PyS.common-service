@@ -2,36 +2,19 @@
 
 Este proyecto sigue el [Versionado Semántico](https://semver.org/).
 
-## [0.0.1-SNAPSHOT] - 2024-12-14
+## [0.0.1-SNAPSHOT]
 
-### Agregado
-- Funcionalidad de cambio de contraseña
-- Mejoras en el sistema de logging
-
-## [0.0.0] - 2024-12-06
-
-### Cambiado
-- Actualización de dependencias:
-  - Spring Boot 3.4.0 → 3.5.3
-  - Spring Cloud 2024.0.0 → 2025.0.0
-  - SpringDoc OpenAPI 2.7.0 → 2.8.9
-
-## [0.0.0] - 2024-11-23
-
-### Agregado
-- Servicio común inicial
-- Configuraciones base del proyecto
-
-## [0.0.0] - 2024-09-19
-
-### Agregado
-- Funcionalidad de importación de Lista Iveco
-
-## [0.0.0] - 2024-08-12
-
-### Mejorado
-- Configuración de bootstrap.yml
+*   **(feat)** feat(proveedor): migrar a UUID y mejorar gestión de proveedores `4f31864`
+*   **(feat)** feat(user): implement password change functionality and improve logging `faf4fb8`
+*   **(feat)** Upgrading versions spring boot 3.4.0 - spring cloud 2024.0.0 - springdoc 2.7.0 `d673167`
+*   **(feat)** Agregado de common service `d75f62c`
+*   **(feat)** Import Lista Iveco `c33f39f`
+*   **(chore)** Improving bootstrap.yml `ee81156`
+*   **(chore)** Pipeline changed `4c2ed53`
+*   **(docs)** Update README.md `5f3c704`
+*   **(ci)** Adding actions `7ab778d`
+*   **(ci)** Create maven-publish.yml `e4d86a5`
+*   **(fix)** Fix deploy `347577a`
 
 ---
-
-*Nota: Las fechas y versiones se basan en el historial de git y el archivo pom.xml. Las versiones anteriores a 0.0.1-SNAPSHOT se marcan como 0.0.0 ya que no se pudo determinar el número de versión exacto en esos commits.*
+*Nota: Este changelog se genera a partir del historial de git. Las fechas exactas de cada cambio se pueden encontrar en el historial de commits.*

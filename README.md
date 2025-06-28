@@ -17,6 +17,7 @@ Servicio común para la plataforma PyS que proporciona funcionalidades compartid
 
 - Gestión de usuarios y autenticación
 - Funcionalidad de cambio de contraseña
+- Gestión de proveedores con identificadores únicos (UUID)
 - Importación de datos (ej: Lista Iveco)
 - Documentación de API con OpenAPI
 
